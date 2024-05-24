@@ -33,3 +33,12 @@ pub(crate) fn print_vec(vec: &Vec<i32>, num_items: i32) {
     string.push_str("]");
     println!("{string}");
 }
+
+// Verify that the Vec is sorted.
+pub(crate) fn check_sorted(vec: &Vec<i32>) {
+    if vec.windows(2).all(|w| w[0] <= w[1]) {
+        println!("{}", "The vector is sorted!")
+    } else {
+        println!("{}", "The vector is NOT sorted!")
+    }
+}

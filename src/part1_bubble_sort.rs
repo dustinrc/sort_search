@@ -1,5 +1,4 @@
-use crate::prompt::get_i32;
-use crate::vector::{make_random_vec, print_vec};
+use crate::run_sort;
 
 // Use bubble sort to sort the vector.
 fn bubble_sort(vec: &mut Vec<i32>) {
@@ -21,24 +20,7 @@ fn bubble_sort(vec: &mut Vec<i32>) {
     println!("passes: {passes}");
 }
 
-// Verify that the Vec is sorted.
-fn check_sorted(vec: &Vec<i32>) {
-    if vec.windows(2).all(|w| w[0] <= w[1]) {
-        println!("{}", "The vector is sorted!")
-    } else {
-        println!("{}", "The vector is NOT sorted!")
-    }
-}
-
 // Run in main.
 pub fn run_bubble_sort() {
-    let num_items = get_i32("How many items? ");
-    let num_max = get_i32("What is the largest number? ");
-
-    let mut vec = make_random_vec(num_items, num_max);
-    print_vec(&vec, num_items);
-    bubble_sort(&mut vec);
-
-    print_vec(&vec, num_items);
-    check_sorted(&vec);
+    run_sort(bubble_sort);
 }
