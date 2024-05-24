@@ -3,6 +3,7 @@ pub(crate) mod prompt;
 pub(crate) mod vector;
 
 pub mod part1_bubble_sort;
+pub mod part2_quicksort;
 
 use crate::{
     prompt::get_i32,

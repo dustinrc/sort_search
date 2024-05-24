@@ -1,4 +1,5 @@
 use sort_search::part1_bubble_sort::run_bubble_sort;
+use sort_search::part2_quicksort::run_quicksort;
 use std::env;
 
 fn main() {
@@ -6,6 +7,7 @@ fn main() {
 
     match args.get(1) {
         Some(s) if s.eq("bubble") => run_bubble_sort(),
-        None | _ => println!(" ** provide one of: bubble, ..."),
+        Some(s) if s.eq("quick") => run_quicksort(),
+        None | _ => println!(" ** provide one of: bubble, quick, ..."),
     }
 }
