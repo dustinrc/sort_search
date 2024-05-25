@@ -2,9 +2,9 @@ use crate::run_sort;
 
 // quick sort with lomuto partition scheme
 // fn quicksort(vec: &mut Vec<i32>) {}
-fn _quicksort(A: &mut [i32]) {
+fn _quicksort(arr: &mut [i32]) {
     // for purposes of lesson, create hi and lo (normally unnecessary)
-    let hi = A.len().saturating_sub(1);
+    let hi = arr.len().saturating_sub(1);
     let lo = 0;
 
     // would need these checks if array instead of slice
@@ -13,29 +13,29 @@ fn _quicksort(A: &mut [i32]) {
         return;
     }
 
-    let p = partition(A);
+    let p = partition(arr);
 
-    _quicksort(&mut A[lo..p]);
-    _quicksort(&mut A[p + 1..=hi]);
+    _quicksort(&mut arr[lo..p]);
+    _quicksort(&mut arr[p + 1..=hi]);
 }
 
-fn partition(A: &mut [i32]) -> usize {
+fn partition(arr: &mut [i32]) -> usize {
     // for purposes of lesson, create hi and lo (normally unnecessary)
-    let hi = A.len() - 1;
+    let hi = arr.len() - 1;
     let lo = 0;
 
     // choose last element as pivot
-    let pivot = A[hi];
+    let pivot = arr[hi];
     // temporary pivot index
     let mut i = lo;
 
-    for j in (lo..hi) {
-        if A[j] <= pivot {
-            A.swap(i, j);
+    for j in lo..hi {
+        if arr[j] <= pivot {
+            arr.swap(i, j);
             i += 1;
         }
     }
-    A.swap(i, hi);
+    arr.swap(i, hi);
     i
 }
 
